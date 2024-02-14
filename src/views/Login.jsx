@@ -1,4 +1,4 @@
-import { useState, useContext } from 'react';
+import { useState } from 'react';
 import { AuthData } from '../auth/AuthWrapper';
 import { useNavigate } from "react-router-dom";
 
@@ -18,7 +18,7 @@ export default function Login() {
             await login(formData.username, formData.password);
             navigate("/dashboard")
         } catch (err) {
-            setError(err.message);
+            setError(err);
         }
     };
 
@@ -32,10 +32,11 @@ export default function Login() {
 
     return (
         <>
-            <div className="login h-[100vh] font-roboto-flex text-center py-10 px-[7vw]">
-                    <h2 className="text-white font-bold text-4xl mb-4">Log In</h2>
-                    <p className="text-dark-200 text-md mb-20">Enter your valid credential for logging in</p>
-                    <form className="w-[40vw] mx-auto" onSubmit={handleSubmit}>
+            <div className="login font-roboto-flex text-center py-10 px-[7vw]">
+                    <form className="w-[450px] mt-[16vh] mx-auto" onSubmit={handleSubmit}>
+
+                        <p className="my-2 text-red-500">{error}</p>
+
                         <label className="block text-left text-white">Enter your username</label>
                         <input 
                             type="text" 
@@ -43,7 +44,7 @@ export default function Login() {
                             value={formData.username}
                             onChange={handleInputChange}
                             spellCheck={false}
-                            autoComplete="false"
+                            autoComplete="off"
                             className="w-full h-10 rounded bg-dark-400 border border-dark-300 mt-1 text-dark-200 outline-none px-2 mb-5"
                             required  
                         />
@@ -55,17 +56,15 @@ export default function Login() {
                             value={formData.password}
                             onChange={handleInputChange}
                             spellCheck={false}
-                            autoComplete="false"
+                            autoComplete="off"
                             className="w-full h-10 rounded bg-dark-400 border border-dark-300 mt-1 text-dark-200 outline-none px-2 mb-10"
                             required 
                         />
 
-                        {error && <p style={{ color: 'red' }}>{error}</p>}
-
                         <button 
                         type="submit"
                         className="block w-full h-15 rounded text-lg p-3 bg-gradient-to-r from-[#FF003D] to-[#9222A5] text-white font-bold">
-                        LOGIN
+                            LOGIN
                         </button>
                         <p className="my-2 text-dark-200">Click on this link if you <a className="text-[#9222A5] underline underline-offset-2" href="">Forgot your credentials</a></p>
                     </form>

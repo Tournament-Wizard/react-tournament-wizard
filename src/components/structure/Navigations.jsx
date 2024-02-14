@@ -3,7 +3,7 @@ import Login from "../../views/Login.jsx"
 import Dashboard from "../../views/Dashboard.jsx"
 
 export const nav = [
-     { path:     "/",         name: "Home",        element: <Home />,       isMenu: true,     isPrivate: false  },
+     { path:     "/",         name: "Home",        element: <Home />,       isMenu: false,     isPrivate: false  },
      { path:     "/login",    name: "Login",       element: <Login />,      isMenu: false,    isPrivate: false  },
-     { path:     "/dashboard",  name: "Dashboard",     element: <Dashboard />,    isMenu: true,     isPrivate: true  },
+     { path:     "/dashboard",  name: "Tournaments",     element: <Dashboard />,    isMenu: true,     isPrivate: true  },
 ]
