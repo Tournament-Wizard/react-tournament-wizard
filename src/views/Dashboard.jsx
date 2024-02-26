@@ -43,7 +43,7 @@ export default function Dashboard() {
         <div className="right">
           <Link to = "/dashboard/new"
             type="submit"
-            className="block w-full rounded text-lg p-2 bg-gradient-to-r from-[#FF003D] to-[#9222A5] text-white font-bold">
+            className="block w-3/4 rounded text-lg p-2 bg-gradient-to-r from-[#FF003D] to-[#9222A5] text-white font-bold text-center float-right">
               CREATE TOURNAMENT
           </Link>
         </div>
