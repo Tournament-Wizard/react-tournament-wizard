@@ -59,20 +59,54 @@ export default function CreateTournament() {
     };
 
     return (
-        <div>
-            <h1>Create Tournament</h1>
+        <div className='container p-4'>
+            <h2 className='text-xl font-bold'>Create Tournament</h2>
             <form onSubmit={handleSubmit}>
-                <input type="text" name="name" value={formData.name} onChange={handleInputChange} placeholder="Name" required />
-                <input type="text" name="description" value={formData.description} onChange={handleInputChange} placeholder="Description" required />
-                <input type="text" name="status" value={formData.status} onChange={handleInputChange} placeholder="Status" required />
-                <input type="text" name="format" value={formData.format} onChange={handleInputChange} placeholder="Format" required />
-                <input type="text" name="starting_date" value={formData.starting_date} onChange={handleInputChange} placeholder="Starting Date" required />
-                <input type="text" name="finishing_date" value={formData.finishing_date} onChange={handleInputChange} placeholder="Finishing Date" required />
-                <input type="text" name="game" value={formData.game} onChange={handleInputChange} placeholder="Game" required />
-                <input type="text" name="location" value={formData.location} onChange={handleInputChange} placeholder="Location" required />
-                <input type="text" name="supervisor" value={formData.supervisor} onChange={handleInputChange} placeholder="Supervisor" required />
-                <input type="text" name="participants_count" value={formData.participants_count} onChange={handleInputChange} placeholder="Participants Count" required />
-                <button type="submit">Submit</button>
+                <div className='grid gap-6 mb-6 md:grid-cols-2'>
+                    <div className='mt-4'>
+                        <label for="name" class="block mb-2 text-sm font-medium text-gray-200 dark:text-white">Name</label>
+                        <input type="text" name="name" className='bg-dark-300 text-gray-50 text-sm rounded-lg focus:ring-blue-500 block w-full p-2.5' value={formData.name} onChange={handleInputChange} required />
+                    </div>
+                    <div className='mt-4'>
+                        <label for="description" class="block mb-2 text-sm font-medium text-gray-200 dark:text-white">Description</label>
+                        <input type="text" name="description" className='bg-dark-300 text-gray-50 text-sm rounded-lg focus:ring-blue-500 block w-full p-2.5' value={formData.description} onChange={handleInputChange} required />
+                    </div>
+                    <div className='mt-4'>
+                        <label for="status" class="block mb-2 text-sm font-medium text-gray-200 dark:text-white">Status</label>
+                        <input type="text" name="status" className='bg-dark-300 text-gray-50 text-sm rounded-lg focus:ring-blue-500 block w-full p-2.5' value={formData.status} onChange={handleInputChange} required />
+                    </div>
+                    <div className='mt-4'>
+                        <label for="format" class="block mb-2 text-sm font-medium text-gray-200 dark:text-white">Format</label>
+                        <input type="text" name="format" className='bg-dark-300 text-gray-50 text-sm rounded-lg focus:ring-blue-500 block w-full p-2.5' value={formData.format} onChange={handleInputChange} required />
+                    </div>
+                    <div className='mt-4'>
+                        <label for="starting_date" class="block mb-2 text-sm font-medium text-gray-200 dark:text-white">Starting Date</label>
+                        <input type="date" name="starting_date" className='bg-dark-300 text-gray-50 text-sm rounded-lg focus:ring-blue-500 block w-full p-2.5' value={formData.starting_date} onChange={handleInputChange} required />
+                    </div>
+                    <div className='mt-4'>
+                        <label for="finishing_date" class="block mb-2 text-sm font-medium text-gray-200 dark:text-white">Finishing Date</label>
+                        <input type="date" name="finishing_date" className='bg-dark-300 text-gray-50 text-sm rounded-lg focus:ring-blue-500 block w-full p-2.5' value={formData.finishing_date} onChange={handleInputChange} required />
+                    </div>
+                    <div className='mt-4'>
+                        <label for="game" class="block mb-2 text-sm font-medium text-gray-200 dark:text-white">Game</label>
+                        <input type="text" name="game" className='bg-dark-300 text-gray-50 text-sm rounded-lg focus:ring-blue-500 block w-full p-2.5' value={formData.game} onChange={handleInputChange} required />
+                    </div>
+                    <div className='mt-4'>
+                        <label for="location" class="block mb-2 text-sm font-medium text-gray-200 dark:text-white">Location</label>
+                        <input type="text" name="location" className='bg-dark-300 text-gray-50 text-sm rounded-lg focus:ring-blue-500 block w-full p-2.5' value={formData.location} onChange={handleInputChange} required />
+                    </div>
+                    <div className='mt-4'>
+                        <label for="supervisor" class="block mb-2 text-sm font-medium text-gray-200 dark:text-white">Supervisor</label>
+                        <input type="text" name="supervisor" className='bg-dark-300 text-gray-50 text-sm rounded-lg focus:ring-blue-500 block w-full p-2.5' value={formData.supervisor} onChange={handleInputChange} required />
+                    </div>
+                    <div className='mt-4'>
+                        <label for="participants_count" class="block mb-2 text-sm font-medium text-gray-200 dark:text-white">Participants Count</label>
+                        <input type="number" name="participants_count" className='bg-dark-300 text-gray-50 text-sm rounded-lg focus:ring-blue-500 block w-full p-2.5' value={formData.participants_count} onChange={handleInputChange} required />
+                    </div>
+                    <div className='mt-4'>
+                        <button type="submit" className='text-white bg-gradient-to-r from-[#FF003D] to-[#9222A5] focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800'>Submit</button>
+                    </div>
+                </div>
             </form>
         </div>
     );
