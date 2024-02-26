@@ -52,7 +52,7 @@ export default function Dashboard() {
       <div className="grid grid-cols-4 mt-4 gap-5">
         {tournaments &&
           tournaments.map(tournament => (
-            <TournamentPreview key={tournament.id} name={tournament.name}
+            <TournamentPreview key={tournament.id} id={tournament.id} name={tournament.name}
             game={tournament.game}
             participants_count={tournament.participants_count}
             status={tournament.status} />
