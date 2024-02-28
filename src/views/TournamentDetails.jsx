@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams, Link } from 'react-router-dom';
 
 export default function TournamentDetails({ match }) {
     const [tournament, setTournament] = useState(null);
@@ -49,6 +49,11 @@ export default function TournamentDetails({ match }) {
                     <p>Location: {tournament.location}</p>
                     <p>Supervisor: {tournament.supervisor}</p>
                     <p>Participants Count: {tournament.participants_count}</p>
+                    <Link to={`/tournaments/${id}/edit`}
+                        type="submit"
+                        className="block w-3/4 rounded text-lg p-2 bg-gradient-to-r from-[#FF003D] to-[#9222A5] text-white font-bold text-center float-right">
+                        Edit Tournament
+                    </Link>
                 </div>
             )}
         </div>
