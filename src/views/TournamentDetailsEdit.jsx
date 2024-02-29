@@ -17,6 +17,7 @@ export default function TournamentDetailsEdit() {
         supervisor: '',
         participants_count: '',
     });
+    
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -60,6 +61,22 @@ export default function TournamentDetailsEdit() {
         }));
     };
 
+    const handleSelectChange = (event) => {
+        const { name, value } = event.target;
+        setFormData((prevData) => ({
+            ...prevData,
+            [name]: value,
+        }));
+    };
+
+    const formatDateForInput = (dateString) => {
+        const date = new Date(dateString);
+        const year = date.getUTCFullYear();
+        const month = String(date.getUTCMonth() + 1).padStart(2, '0');
+        const day = String(date.getUTCDate()).padStart(2, '0');
+        return `${year}-${month}-${day}`;
+    };
+
     useEffect(() => {
         const fetchTournament = async () => {
             try {
@@ -90,20 +107,29 @@ export default function TournamentDetailsEdit() {
 
     return (
         <div className="container p-4">
-        <h2 className="text-xl font-bold">Edit Tournament</h2>
-        <form onSubmit={handleSubmit}>
+            <h2 className="text-xl font-bold">Edit Tournament</h2>
+            <form onSubmit={handleSubmit}>
                 <div className='grid gap-6 mb-6 md:grid-cols-2'>
-                    <div className='mt-4'>
+                    <div className='mt-4 col-span-2'>
                         <label htmlFor="name" className="block mb-2 text-sm font-medium text-gray-200 dark:text-white">Name</label>
                         <input type="text" name="name" className='bg-dark-300 text-gray-50 text-sm rounded-lg focus:ring-blue-500 block w-full p-2.5' value={formData.name} onChange={handleInputChange} required />
                     </div>
-                    <div className='mt-4'>
+                    <div className='mt-4 col-span-2'>
                         <label htmlFor="description" className="block mb-2 text-sm font-medium text-gray-200 dark:text-white">Description</label>
-                        <input type="text" name="description" className='bg-dark-300 text-gray-50 text-sm rounded-lg focus:ring-blue-500 block w-full p-2.5' value={formData.description} onChange={handleInputChange} required />
+                        <textarea type="text" name="description" className='bg-dark-300 text-gray-50 text-sm rounded-lg focus:ring-blue-500 block w-full p-2.5' value={formData.description} onChange={handleInputChange} required />
                     </div>
                     <div className='mt-4'>
                         <label htmlFor="status" className="block mb-2 text-sm font-medium text-gray-200 dark:text-white">Status</label>
-                        <input type="text" name="status" className='bg-dark-300 text-gray-50 text-sm rounded-lg focus:ring-blue-500 block w-full p-2.5' value={formData.status} onChange={handleInputChange} required />
+                        <select 
+                            className="w-full mb-2 text-sm font-medium p-[10px] bg-no-repeat appearance-none rounded-md bg-dark-300" 
+                            name="status" 
+                            onChange={handleSelectChange} 
+                            value={formData.status} 
+                            required
+                        >
+                            <option value="Open">Open</option>
+                            <option value="Closed">Closed</option>
+                        </select>
                     </div>
                     <div className='mt-4'>
                         <label htmlFor="format" className="block mb-2 text-sm font-medium text-gray-200 dark:text-white">Format</label>
@@ -111,11 +137,11 @@ export default function TournamentDetailsEdit() {
                     </div>
                     <div className='mt-4'>
                         <label htmlFor="starting_date" className="block mb-2 text-sm font-medium text-gray-200 dark:text-white">Starting Date</label>
-                        <input type="date" name="starting_date" className='bg-dark-300 text-gray-50 text-sm rounded-lg focus:ring-blue-500 block w-full p-2.5' value={formData.starting_date} onChange={handleInputChange} required />
+                        <input type="date" name="starting_date" className='bg-dark-300 text-gray-50 text-sm rounded-lg focus:ring-blue-500 block w-full p-2.5' value={formatDateForInput(formData.starting_date)} onChange={handleInputChange} required />
                     </div>
                     <div className='mt-4'>
                         <label htmlFor="finishing_date" className="block mb-2 text-sm font-medium text-gray-200 dark:text-white">Finishing Date</label>
-                        <input type="date" name="finishing_date" className='bg-dark-300 text-gray-50 text-sm rounded-lg focus:ring-blue-500 block w-full p-2.5' value={formData.finishing_date} onChange={handleInputChange} required />
+                        <input type="date" name="finishing_date" className='bg-dark-300 text-gray-50 text-sm rounded-lg focus:ring-blue-500 block w-full p-2.5' value={formatDateForInput(formData.finishing_date)} onChange={handleInputChange} required />
                     </div>
                     <div className='mt-4'>
                         <label htmlFor="game" className="block mb-2 text-sm font-medium text-gray-200 dark:text-white">Game</label>
@@ -138,6 +164,6 @@ export default function TournamentDetailsEdit() {
                     </div>
                 </div>
             </form>
-    </div>
+        </div>
     );
 }
