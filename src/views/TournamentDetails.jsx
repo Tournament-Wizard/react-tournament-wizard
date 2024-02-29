@@ -1,12 +1,14 @@
 import React, { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
 import { Icon } from '@iconify/react';
+import { useParams, Link } from 'react-router-dom';
 
 import GamesImg from "../assets/images/games.png";
 import LeagueOfLegendsImg from "../assets/images/leagueOfLegends.png";
 import ValorantImg from "../assets/images/Valorant.png";
 import RocketLeagueImg from "../assets/images/RocketLeague.png";
 import CSGOImg from "../assets/images/CSGO.png";
+
+
 
 export default function TournamentDetails({ match }) {
     const [tournament, setTournament] = useState(null);
@@ -85,7 +87,6 @@ export default function TournamentDetails({ match }) {
                             {tournament.game}
                         </h4>
                     </div>
-                </div>
             )}
             <div className="container p-4 font-roboto-flex">
                 {tournament && (
