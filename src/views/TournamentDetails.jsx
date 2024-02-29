@@ -8,9 +8,7 @@ import ValorantImg from "../assets/images/Valorant.png";
 import RocketLeagueImg from "../assets/images/RocketLeague.png";
 import CSGOImg from "../assets/images/CSGO.png";
 
-
-
-export default function TournamentDetails({ match }) {
+export default function TournamentDetails() {
     const [tournament, setTournament] = useState(null);
     const [gameImg, setGameImg] = useState(GamesImg); // Initialize with default image
     const { id } = useParams();
@@ -66,7 +64,6 @@ export default function TournamentDetails({ match }) {
             }
             setGameImg(newGameImg);
         }
-        
     }, [tournament]);
 
     // Function to format dates
@@ -81,12 +78,13 @@ export default function TournamentDetails({ match }) {
                 <div className="game-img h-[14vh] font-roboto-flex" style={{ backgroundImage: `url("${gameImg}")` }}>
                     <div className="container px-4 py-8">
                         <h2 className="text-white font-bold text-3xl">
-                            { tournament.name }
+                            {tournament.name}
                         </h2>
                         <h4 className="text-[#FF003D] mt-2">
                             {tournament.game}
                         </h4>
                     </div>
+                </div>
             )}
             <div className="container p-4 font-roboto-flex">
                 {tournament && (
@@ -140,7 +138,13 @@ export default function TournamentDetails({ match }) {
                             <p className="text-md">{tournament.participants_count}</p>
                         </div>
                     </div>
+  
                 )}
+                <Link to={`/tournaments/${id}/edit`}
+                        type="submit"
+                        className="block w-[200px] mx-auto rounded text-lg p-2 bg-gradient-to-r from-[#FF003D] to-[#9222A5] text-white font-bold text-center float-right">
+                        Edit Tournament
+                </Link>
             </div>
         </>
     );
