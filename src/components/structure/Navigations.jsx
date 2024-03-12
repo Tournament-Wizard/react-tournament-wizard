@@ -22,7 +22,7 @@ export const nav = [
     { path: "/players", name: "Players", element: <Players />, isMenu: true, isPrivate: true },
     { path: "/players/new", name: "NewPlayer", element: <CreatePlayer />, isMenu: false, isPrivate: true },
     { path: "/players/:id", name: "PlayerDetails", element: <PlayerDetails />, isMenu: false, isPrivate: true },
-    { path: "/players/:id/edit", name: "PlayerEdit", element: <PlayerDetailsEdit />, isMenu: false, isPrivate: true },
+    //{ path: "/players/:id/edit", name: "PlayerEdit", element: <PlayerDetailsEdit />, isMenu: false, isPrivate: true },
     { path: "/teams", name: "Teams", element: <Teams />, isMenu: true, isPrivate: true },
     { path: "/teams/new", name: "NewTeam", element: <CreateTeam />, isMenu: false, isPrivate: true },
     { path: "/teams/:id", name: "TeamDetails", element: <TeamDetails />, isMenu: false, isPrivate: true },
