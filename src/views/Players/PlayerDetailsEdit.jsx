@@ -53,7 +53,7 @@ export default function PlayerDetailsEdit() {
               redirect: 'follow',
           };
 
-          const response = await fetch(`http://localhost:8080/api/players/${id}`, requestOptions);
+          const response = await fetch(`http://localhost:8080/api/players/basic/${id}`, requestOptions);
           if (!response.ok) {
               throw new Error('Failed to fetch player');
           }
@@ -164,7 +164,7 @@ export default function PlayerDetailsEdit() {
                     <select
                       name="team"
                       onChange={handleSelectChange}
-                      value={formData.team || ''} // Use empty string if formData.team is null
+                      value={formData.team} // Use empty string if formData.team is null
                       required
                       className="w-full mb-2 text-sm font-medium p-[10px] bg-no-repeat appearance-none rounded-md bg-dark-300"
                     >
