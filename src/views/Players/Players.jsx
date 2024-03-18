@@ -53,10 +53,10 @@ export default function Players() {
                 </div>
             </div>
         
-            <div className="grid grid-cols-6 gap-4 mt-4">
+            <div className="grid grid-cols-5 gap-4 mt-4">
                     {players &&
                         players.map(player => (
-                            <PlayerPreview key={player.id} id={player.id} name={player.name} nationality={player.nationality} teamTag={player.teamtag} />
+                            <PlayerPreview key={player.id} id={player.id} name={player.name} nationality={player.nationality} teamTag={player.teamtag} teamName={player.team_name} />
                     ))}
             </div>
         </div>

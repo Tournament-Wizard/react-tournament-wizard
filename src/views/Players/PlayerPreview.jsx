@@ -1,18 +1,19 @@
 import { Icon } from '@iconify/react';
 import { Link } from 'react-router-dom';
 
-export default function PlayerPreview({ id, name, nationality, teamTag}) {
+export default function PlayerPreview({ id, name, nationality, teamTag, teamName}) {
   return (
     <Link to={`/players/${id}`}>
-    <div className="bg-dark-500 p-4 rounded text-center">
-        <div className="icon bg-dark-400 rounded py-4 mb-2">
-            <Icon icon="iconoir:user" width={"100"} height={"100"} className="mx-auto" />
-        </div>
-      
-        <h2 className="text-md font-semibold flex items-center">
-            <Icon icon={`emojione:flag-for-${nationality}`} width={"20"} height={"20"} className="mr-2" /> {teamTag} {name}
+      <div className="bg-gradient-to-b from-[#121212] to-[#212020] w-full rounded-md p-4 text-center">
+        <h4 className="font-semibold text-md mt-2">{teamName}</h4>
+        <Icon icon="lets-icons:user-light" width={"120"} height={"120"} className="mx-auto mt-4" />
+        <h2 className="mt-7 text-lg font-semibold">
+          <span className="absolute -ml-7 mt-1">
+            <Icon icon={`emojione:flag-for-${nationality}`} width={"20"} height={"20"}/> 
+          </span>
+          {teamTag} {name}
         </h2>
-    </div>
+      </div>
     </Link>
   )
 }
