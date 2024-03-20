@@ -106,7 +106,7 @@ export default function TournamentDetails() {
             </div>
             <div className="container p-4 font-roboto-flex">
                 {selectedTab === 'bracket' && <BracketTab />}
-                {selectedTab === 'teams' && <TeamsTab />}
+                {selectedTab === 'teams' && <TeamsTab status={tournament.status} />}
                 {selectedTab === 'details' && <DetailsTab tournamentData={tournament} />}
             </div>
         </>

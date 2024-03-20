@@ -36,14 +36,13 @@ export default function Teams() {
 
     return (
         <div className='container p-4'>
-            <div className="right">
+            <div className="">
                 <Link to="/teams/new"
                     type="submit"
-                    className="block w-1/5 rounded text-lg p-2 bg-gradient-to-r from-[#FF003D] to-[#9222A5] text-white font-bold text-center float-right">
+                    className="block w-1/5 rounded text-lg p-2 bg-gradient-to-r from-[#FF003D] to-[#9222A5] text-white font-bold text-center ">
                     CREATE TEAM
                 </Link>
             </div>
-            <div></div>
             <div className="grid grid-cols-4 mt-4 gap-5">
                 {teams &&
                     teams.map(team => (

@@ -1,11 +1,19 @@
 import React from 'react'
-import { useParams } from 'react-router-dom';
+import TournamentTeamSearch from '../TournamentTeamSearch';
 
-export default function TeamsTab({ teamData }) {
-  const { id } = useParams();
+export default function TeamsTab({ teamData, status }) {
 
+    
+    
     return (
         <>
+
+            {status === "Open" ? (
+                <>
+                    <h3 className="text-xl font-bold">Add teams</h3>
+                    <TournamentTeamSearch />
+                </>
+            ) : ""}
             {teamData && (
                     <div className="grid grid-cols-2 gap-4">
                         <div className="my-1">
@@ -20,7 +28,7 @@ export default function TeamsTab({ teamData }) {
                         </div>
                     </div>
   
-                )}
+            )}
         </>
     );
 }

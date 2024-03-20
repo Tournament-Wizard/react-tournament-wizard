@@ -7,7 +7,7 @@ export default function TeamPreview({ id, name, teamtag, coach }) {
 
     return (
         <Link to = {`/teams/${id}`}>
-        <div className="bg-gradient-to-b from-[#121212] to-[#212020] w-full rounded-md p-4 text-center">
+        <div className="bg-gradient-to-b from-[#121212] to-[#212020] w-full h-[276px] rounded-md p-4 text-center">
             <Icon icon="fluent:people-team-20-regular" width={"120"} height={"120"} className="mx-auto mt-4 mb-8" />
             <h2 className="mt-4 text-lg text-[#FF003D]">
                 {teamtag}
